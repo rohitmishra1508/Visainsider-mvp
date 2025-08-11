@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Help Center – VisaInsider",
-  description: "Help Center and support information.",
+export const metadata = {
+  title: "Help Center - VisaInsider",
+  description: "Get answers to common questions and find support.",
 };
 
-export default function HelpCenterPage() {
+export default function Page() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-semibold tracking-tight mb-4">Help Center</h1>
+      <h1 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+        Help Center
+      </h1>
       <p className="text-slate-600">
-        This is a placeholder. Add your FAQs, contact details, and guides here.
+        This is a placeholder Help Center page. Add FAQs and contact options
+        here.
       </p>
     </main>
   );
