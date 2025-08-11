@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 
 const NAV_LINKS = [
@@ -22,21 +23,21 @@ export default function Header() {
   useEffect(() => {
     // Set initial state
     handleScroll();
-    
-    // Throttle scroll events
-    let timeoutId: NodeJS.Timeout;
+
+    // Fix: Change number to NodeJS.Timeout for proper typing
+    let timeoutId: NodeJS.Timeout | null = null;
     const throttledScroll = () => {
-      if (timeoutId) return;
+      if (timeoutId !== null) return;
       timeoutId = setTimeout(() => {
         handleScroll();
-        timeoutId = null as any;
+        timeoutId = null;
       }, 10);
     };
 
     window.addEventListener("scroll", throttledScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", throttledScroll);
-      if (timeoutId) clearTimeout(timeoutId);
+      if (timeoutId !== null) clearTimeout(timeoutId);
     };
   }, [handleScroll]);
 
@@ -48,8 +49,8 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-4 h-20 md:h-24 flex items-center gap-4">
         {/* Logo */}
-        <a 
-          href="/" 
+        <Link
+          href="/"
           className="flex items-center gap-2 shrink-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
           aria-label="VisaInsider Home"
         >
@@ -61,29 +62,29 @@ export default function Header() {
             className="h-20 md:h-24 w-auto object-contain"
             priority
           />
-        </a>
+        </Link>
 
         <div className="flex-1" />
 
         {/* Navigation */}
-        <nav 
+        <nav
           className="hidden md:flex items-center gap-7 text-[15px] text-slate-700"
           role="navigation"
           aria-label="Main navigation"
         >
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="hover:text-slate-900 focus:text-slate-900 focus:outline-none focus:underline transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Sign in button */}
-        <a
+        <Link
           href="/signin"
           className="ml-4 inline-flex items-center rounded-full px-6 py-2.5 text-sm font-semibold
                      bg-gradient-to-r from-blue-600 to-blue-700 text-white 
@@ -93,7 +94,7 @@ export default function Header() {
                      transform hover:scale-105 transition-all duration-200"
         >
           Sign in
-        </a>
+        </Link>
       </div>
     </header>
   );

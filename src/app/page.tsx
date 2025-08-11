@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroTitle from "@/components/HeroTitle";
 import HeroSearch from "@/components/HeroSearch";
+import Image from "next/image";
 import { Metadata } from "next";
 
 // ---------- Data ----------
@@ -205,7 +206,7 @@ export default function Home() {
             </div>
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
               Apply for <strong>Tourist</strong>, <strong>Business</strong>, or <strong>Family Visit</strong> visas,
-              <strong> faster</strong>, <strong>easier</strong>, with <strong>expert guidance</strong> at every step.
+              <strong> faster</strong>, <strong>easier</strong>, with <strong>expert guidance</strong> and <strong>transparent service</strong> at every step.
             </p>
           </div>
 
@@ -306,12 +307,15 @@ export default function Home() {
                            duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="overflow-hidden">
-                  <img
-                    src={d.img}
-                    alt={d.alt}
-                    loading="lazy"
-                    className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <Image
+  src={d.img}
+  alt={d.alt}
+  width={400}
+  height={224}
+  className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+  loading="lazy"
+  unoptimized={true} // Since you're using external URLs
+/>
                 </div>
 
                 <div className="absolute inset-x-0 bottom-0 p-4">
@@ -418,7 +422,7 @@ export default function Home() {
             <div>
               <h3 className="text-sm font-semibold text-slate-900 mb-3">Support</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="/help" className="text-slate-600 hover:text-slate-900">Help Center</a></li>
+                <li><a href="/help" className="text-slate-600 hover:text-slate-900"><strong>Help Center</strong></a></li>
                 </ul>
             </div>
 
@@ -426,9 +430,9 @@ export default function Home() {
             <div>
               <h3 className="text-sm font-semibold text-slate-900 mb-3">Legal</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="/privacy" className="text-slate-600 hover:text-slate-900">Privacy Policy</a></li>
-                <li><a href="/terms" className="text-slate-600 hover:text-slate-900">Terms of Use</a></li>
-                <li><a href="/refund" className="text-slate-600 hover:text-slate-900">Refund Policy</a></li>
+                <li><a href="/privacy" className="text-slate-600 hover:text-slate-900"><strong>Privacy Policy</strong></a></li>
+                <li><a href="/terms" className="text-slate-600 hover:text-slate-900"><strong>Terms of Use</strong></a></li>
+                <li><a href="/refund" className="text-slate-600 hover:text-slate-900"><strong>Refund Policy</strong></a></li>
               </ul>
             </div>
           </div>

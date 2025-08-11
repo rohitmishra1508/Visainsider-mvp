@@ -87,7 +87,7 @@ export default function HeroSearch() {
     handleNavigation(country);
   }, [handleNavigation]);
 
-  // Show dropdown on focus if there’s text
+  // Show dropdown on focus if there's text
   const handleFocus = useCallback(() => {
     if (query.trim()) setShowDropdown(true);
   }, [query]);
@@ -130,6 +130,7 @@ export default function HeroSearch() {
             aria-expanded={showDropdown}
             aria-haspopup="listbox"
             aria-autocomplete="list"
+            aria-controls="country-suggestions"
             role="combobox"
             disabled={isLoading}
           />
@@ -149,6 +150,7 @@ export default function HeroSearch() {
       {showDropdown && filteredCountries.length > 0 && (
         <div
           ref={dropdownRef}
+          id="country-suggestions"
           className="absolute top-full left-0 right-0 mt-3 w-full
                    overflow-hidden rounded-2xl border border-slate-200 bg-white/95
                    backdrop-blur shadow-2xl z-20"
