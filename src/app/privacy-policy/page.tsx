@@ -1,10 +1,16 @@
-export default function PrivacyPolicy() {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy – VisaInsider",
+  description: "Privacy policy for VisaInsider.",
+};
+
+export default function PrivacyPolicyPage() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-      <p className="text-slate-600 leading-relaxed">
-        This is where your privacy policy content will go.  
-        We respect your privacy and are committed to protecting your data...
+    <main className="max-w-3xl mx-auto px-4 py-12">
+      <h1 className="text-3xl font-semibold tracking-tight mb-4">Privacy Policy</h1>
+      <p className="text-slate-600">
+        We will add our privacy policy content here.
       </p>
     </main>
   );

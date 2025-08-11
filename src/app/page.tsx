@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import HeroTitle from "@/components/HeroTitle";
 import HeroSearch from "@/components/HeroSearch";
-import Image from "next/image";
+import Image from "next/image"; // ✅ added
 import { Metadata } from "next";
 
 // ---------- Data ----------
@@ -239,48 +239,48 @@ export default function Home() {
 
       {/* ---------- TOOLS ---------- */}
       <section id="tools" className="scroll-mt-20" aria-labelledby="tools-heading">
-  <div className="max-w-6xl mx-auto px-4 py-12">
-    <div className="flex items-end justify-between mb-6">
-      <h2 id="tools-heading" className="text-2xl md:text-3xl font-semibold tracking-tight">
-        Visa Tools
-      </h2>
-      <p className="hidden md:block text-sm text-slate-500">
-        Modern utilities to plan, budget, and track your application.
-      </p>
-    </div>
-
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {TOOLS.map((t) => (
-        <a
-          key={t.id}
-          href={t.href}
-          aria-label={t.ariaLabel}
-          className="group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-200/70 shadow-sm 
-                     transition-all duration-300 hover:shadow-xl hover:-translate-y-1
-                     focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100"
-        >
-          {/* Hover gradient ring */}
-          <div
-            className="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-transparent
-                       group-hover:ring-8 group-hover:ring-blue-500/10 transition-all"
-          />
-
-          <div className="flex items-center gap-4">
-            <div
-              className={`h-12 w-12 rounded-xl bg-gradient-to-r ${t.grad} text-white grid place-content-center text-xl shadow-sm`}
-            >
-              {t.icon}
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-900">{t.title}</h3>
-              <p className="text-sm text-slate-600 mt-1">{t.description}</p>
-            </div>
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className="flex items-end justify-between mb-6">
+            <h2 id="tools-heading" className="text-2xl md:text-3xl font-semibold tracking-tight">
+              Visa Tools
+            </h2>
+            <p className="hidden md:block text-sm text-slate-500">
+              Modern utilities to plan, budget, and track your application.
+            </p>
           </div>
-        </a>
-      ))}
-    </div>
-  </div>
-</section>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {TOOLS.map((t) => (
+              <a
+                key={t.id}
+                href={t.href}
+                aria-label={t.ariaLabel}
+                className="group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-200/70 shadow-sm 
+                           transition-all duration-300 hover:shadow-xl hover:-translate-y-1
+                           focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100"
+              >
+                {/* Hover gradient ring */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-transparent
+                             group-hover:ring-8 group-hover:ring-blue-500/10 transition-all"
+                />
+
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`h-12 w-12 rounded-xl bg-gradient-to-r ${t.grad} text-white grid place-content-center text-xl shadow-sm`}
+                  >
+                    {t.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">{t.title}</h3>
+                    <p className="text-sm text-slate-600 mt-1">{t.description}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ---------- DESTINATIONS ---------- */}
       <section id="destinations" className="bg-slate-50 scroll-mt-20" aria-labelledby="destinations-heading">
@@ -307,15 +307,15 @@ export default function Home() {
                            duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="overflow-hidden">
+                  {/* ✅ next/image used */}
                   <Image
-  src={d.img}
-  alt={d.alt}
-  width={400}
-  height={224}
-  className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-  loading="lazy"
-  unoptimized={true} // Since you're using external URLs
-/>
+                    src={d.img}
+                    alt={d.alt}
+                    width={1200}
+                    height={600}
+                    className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority={false}
+                  />
                 </div>
 
                 <div className="absolute inset-x-0 bottom-0 p-4">
@@ -423,7 +423,7 @@ export default function Home() {
               <h3 className="text-sm font-semibold text-slate-900 mb-3">Support</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="/help" className="text-slate-600 hover:text-slate-900"><strong>Help Center</strong></a></li>
-                </ul>
+              </ul>
             </div>
 
             {/* Legal */}
